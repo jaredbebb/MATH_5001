@@ -1,4 +1,4 @@
-function x = bisection_method(a,b,epsilon,lambda_function)
+function x = bisection_method(a,b,e)
     %This fucntion is the bisection method
     % INPUT: parameter e is the error tolerance
     % OUTPUT: Either a point x that is within e of a solution z
@@ -8,7 +8,13 @@ function x = bisection_method(a,b,epsilon,lambda_function)
     b(1) =b;
     k = 1;
 
-    while ((b(k)-a(k))/2 >= epsilon)
+        %nested function
+        function result = nestfun
+            result = (x(k)^2) + x(k);
+            disp(result);
+        end
+
+    while ((b(k)-a(k))/2 >= e)
         fprintf('\n')
         x(k) = (a(k)+b(k))/2;
         fprintf('xk %f \n',x(k))
@@ -19,7 +25,8 @@ function x = bisection_method(a,b,epsilon,lambda_function)
             a(k+1) = x(k);
             b(k+1) = b(k);
             fprintf('cond1 k %f \n',k)
-            t = lambda_function(x(k))
+            t = nestfun;
+            % k = k+1;
         else
             b(k+1) = x(k);
             a(k+1) = a(k);
