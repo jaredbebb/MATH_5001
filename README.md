@@ -39,5 +39,12 @@ end
 ```
 
 #Q3
+```
+max_iter = 10
+lambda_function = @(x) (x+1)/2;
+epsilon = 0.1
+result = fixed_point_method(initial_guess,epsilon,max_iter,lambda_function);
+
+```
 
 #Q4

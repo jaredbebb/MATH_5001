@@ -1,14 +1,16 @@
-function result = fixed_point_method(x,e,g)
+function result = fixed_point_method(initial_guess,epsilon,max_iter,lambda_function)
 %FIXED_POINT_METHOD Summary of this function goes here
 %   Detailed explanation goes here
-    k = 1;    
-    x(1)=x;
-    while abs(x(k+1)-x(k)) < e && k <= M -1
-        x(k+1) = g(x(k));
-        if abs(g(x(k+1)-x(k+1))) < e
+    k = 2;    
+    x(1)=initial_guess;
+    x(2)=lambda_function(x(1));
+    while abs(x(k+1)-x(k)) < epsilon && k <= max_iter
+        x(k+1) = lambda_function(x(k));
+        if abs(lambda_function(x(k+1)-x(k+1))) < epsilon
+            break;
         end
         k = k+1;
     end
-    result = x(k+1);
+    result = x(k);
 end
 
