@@ -1,6 +1,7 @@
 # MATH_5001
 
-# RUN
+# HW 1
+
 ## BISECTION METHOD
 
 ### set anonymous functions
@@ -31,8 +32,8 @@ format long
 lambda_function = @(x) atan(x);
 for e = [10^-2,10^-4, 10^-8, 10^-16, 10^-32, 10^-132]
 	fileID = fopen('q2.txt','a+');
-	fprintf(fileID,"#### e = %e ####\n",e)
-	fprintf(fileID,"%e \n",bisection_method(-1,1,e,lambda_function))
+	fprintf(fileID,"\n#### e = %1.3e ####\n",e)
+	fprintf(fileID,"%1.3e \n",bisection_method(-4.9,5.1,e,lambda_function))
 	fclose(fileID);
 end
 ```
