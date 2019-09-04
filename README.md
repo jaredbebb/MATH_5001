@@ -40,10 +40,16 @@ end
 
 #Q3
 ```
-max_iter = 10
-lambda_function = @(x) (x+1)/2;
-epsilon = 0.1
-result = fixed_point_method(initial_guess,epsilon,max_iter,lambda_function);
+format short
+fileID = fopen('q3.txt','a+');
+initial_guess = -0.1;
+epsilon = 0.00001;
+epsilon_f = 10^(-6);
+lambda_function = @(x) (x/2)+(1/x);
+max_iter = 10;
+result = fixed_point_method(initial_guess,epsilon,epsilon_f,max_iter,lambda_function)
+fprintf(fileID,"%1.3e \n",result); 
+
 
 ```
 
