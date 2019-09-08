@@ -11,7 +11,7 @@ diff(f)
 	1/x
 ```
 
-#Q3
+# Q3
 ```
 lambda_function = @(x) atan(x);
 deriv_lambda_function = @(x) 1/(x^2 + 1);
@@ -25,7 +25,7 @@ for x = [0.5, 1, 1.3, 1.4, 1.35, 1.375, 1.3875, 1.39375, 1.390625, 1.3921875]
 end
 ```
 
-#Q4
+# Q4
 ```
 lambda_function = @(x) atan(x);
 error = 10^-10;
